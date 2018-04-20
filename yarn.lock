@@ -2387,6 +2387,10 @@ pkg-dir@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
+pluralize@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
+
 pn@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/pn/-/pn-1.1.0.tgz#e2f4cef0e219f463c179ab37463e4e1ecdccbafb"
@@ -2717,6 +2721,12 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
+
+slugizoid@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/slugizoid/-/slugizoid-1.1.0.tgz#5e0a30c0d1c3231c3361b7ab3ae58fead316f756"
+  dependencies:
+    pluralize "^7.0.0"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
