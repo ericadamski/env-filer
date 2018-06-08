@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const { homedir } = require('os');
-const { bindNodeCallback } = require('rxjs/observable/bindNodeCallback');
-const { catchError, map, switchMap } = require('rxjs/operators');
+const { bindNodeCallback } = require('rxjs');
+const { tap, catchError, mapTo, concatMap } = require('rxjs/operators');
 
 const mkdir = require('./utils/mkdir');
 const writeFile = bindNodeCallback(fs.writeFile);
@@ -15,8 +15,8 @@ module.exports = function write(
   const c = JSON.stringify(content);
 
   return mkdir(options.dir).pipe(
-    switchMap(() =>
-      writeFile(path.join(options.dir, `.${name}`), c).pipe(map(() => c))
+    concatMap(() =>
+      writeFile(path.join(options.dir, `.${name}`), c).pipe(mapTo(c))
     ),
     catchError(/* istanbul ignore next */ () => [false])
   );

@@ -1,7 +1,6 @@
 const { spawn } = require('child_process');
 
-const { merge } = require('rxjs/observable/merge');
-const { fromEvent } = require('rxjs/observable/fromEvent');
+const { merge, fromEvent } = require('rxjs');
 const { map, filter, take, tap } = require('rxjs/operators');
 
 module.exports = function mkdir(p) {
@@ -9,16 +8,7 @@ module.exports = function mkdir(p) {
   const c = spawn('mkdir', ['-p', p], { stdio: 'ignore' });
 
   return merge(
-    fromEvent(c, 'exit').pipe(
-      map((code, signal) => {
-        /* istanbul ignore if */
-        if (code)
-          throw Object.assign(new Error(`git exited with error code ${code}`), {
-            code,
-            signal,
-          });
-      })
-    ),
+    fromEvent(c, 'exit'),
     fromEvent(c, 'error').pipe(
       map(err => {
         /* istanbul ignore next */

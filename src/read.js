@@ -1,6 +1,5 @@
 const fs = require('fs');
-const { bindNodeCallback } = require('rxjs/observable/bindNodeCallback');
-const { merge } = require('rxjs/observable/merge');
+const { merge, bindNodeCallback } = require('rxjs');
 const { partition, catchError, map, switchMap } = require('rxjs/operators');
 
 const exists = require('./exists');

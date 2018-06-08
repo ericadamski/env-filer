@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { bindNodeCallback } = require('rxjs/observable/bindNodeCallback');
+const { bindNodeCallback } = require('rxjs');
 const { catchError, map } = require('rxjs/operators');
 
 const access = bindNodeCallback(fs.access);
