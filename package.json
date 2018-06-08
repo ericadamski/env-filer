@@ -1,13 +1,13 @@
 {
   "name": "env-filer",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A tiny package to help manage dot files for you",
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:ericadamski/env-filer.git",
   "author": "Eric Adamski <er.adamski@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "prepublish": "yarn test && yarn build",
+    "prepare": "yarn test && yarn build",
     "build": "rollup -c",
     "test": "jest"
   },
