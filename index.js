@@ -1,6 +1,6 @@
 const { homedir } = require('os');
 const { join } = require('path');
-const slugioid = require('slugizoid');
+const slugizoid = require('slugizoid').default;
 const read = require('./src/read');
 const write = require('./src/write');
 
