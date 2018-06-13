@@ -21,19 +21,19 @@ module.exports = function filer(
 
   return {
     read() {
-      const r = read(join(d, `.${n}`));
+      const r$ = read(join(d, `.${n}`));
 
-      return o.usePromises ? r.toPromise() : r;
+      return o.usePromises ? r$.toPromise() : r$;
     },
     write(v) {
-      const w = write(n, v, { dir: d });
+      const w$ = write(n, v, { dir: d });
 
-      return o.usePromises ? w.toPromise() : w;
+      return o.usePromises ? w$.toPromise() : w$;
     },
     destroy() {
-      const d = destroy(join(d, `.${n}`));
+      const d$ = destroy(join(d, `.${n}`));
 
-      return o.usePromises ? d.toPromise() : d;
+      return o.usePromises ? d$.toPromise() : d$;
     },
   };
 };
