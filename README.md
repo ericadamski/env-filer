@@ -35,11 +35,19 @@ const filer = require('env-filer');
 
 const dotfile = filer('git-tokens');
 
+// writes this to ~/.config/.git-tokens
 dotfile
   .write({ access_token: 'this is my token!' })
-  .subscribe(() => console.log('I have written!')); // writes this to ~/.config/.git-tokens
+  .subscribe(() => console.log('I have written!'));
+// I have written
 
-dotfile.read().subscribe(data => console.log(data)); // { access_token: 'this is my token!' }
+// Read the data back
+dotfile.read().subscribe(data => console.log(data));
+// { access_token: 'this is my token!' }
+
+// Removes the file
+dotfile.destroy().subscribe(console.log);
+// true
 ```
 
 Using Promises
@@ -47,7 +55,15 @@ Using Promises
 ```javascript
 const dotfile = filer('git-tokens', { usePromises: true });
 
-await dotfile.write({ access_token: 'this is my token!' })// writes this to ~/.config/.git-tokens
+// Write the file
+await dotfile.write({ access_token: 'this is my token!' });
+// writes this to ~/.config/.git-tokens
 
-console.log(await dotfile.read()); // { access_token: 'this is my token!' }
+// Read the file
+console.log(await dotfile.read());
+// { access_token: 'this is my token!' }
+
+// Remove the file
+console.log(await dotfile.destroy());
+// true
 ```
